@@ -71,7 +71,7 @@ int main(int argc, char **argv)
     // Main loop
     cv::Mat imRGB, imD;
     
-    for (int i = 0; i < 50; i++)
+    for (int i = 0; i < 100; i++)
     {
         frames = pipe.wait_for_frames();
         
