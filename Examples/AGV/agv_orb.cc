@@ -78,9 +78,7 @@ int main(int argc, char **argv)
 #else
         std::chrono::monotonic_clock::time_point t1 = std::chrono::monotonic_clock::now();
 #endif
-        // double timestamp = frames.get_timestamp();
-        auto timeStamp = chrono::steady_clock::now();
-        chrono::duration<double> timestamp = chrono::duration_cast<chrono::duration<double>(timeStamp);
+        chrono::duration<double, std::milli> timestamp = chrono::duration_cast<chrono::duration<double, std::milli>(t1);
 
         cout << timestamp.count() << endl;
         // Pass the image to the SLAM system
