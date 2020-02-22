@@ -89,11 +89,11 @@ add_executable(rgbd_tum
 Examples/RGB-D/rgbd_tum.cc)
 target_link_libraries(rgbd_tum ${PROJECT_NAME})
 
-# add_executable(agv_orb
-# Examples/AGV/agv_orb.cc)
-# target_link_libraries(rgbd_tum ${PROJECT_NAME})
-# # Link librealsense2 to the target
-# target_link_libraries(${PROJECT_NAME} ${realsense2_LIBRARY})
+add_executable(agv_orb
+Examples/AGV/agv_orb.cc)
+target_link_libraries(agv_orb ${PROJECT_NAME})
+# Link librealsense2 to the target
+target_link_libraries(${PROJECT_NAME} ${realsense2_LIBRARY})
 
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Stereo)
