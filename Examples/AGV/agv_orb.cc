@@ -78,12 +78,12 @@ int main(int argc, char **argv)
 #else
         std::chrono::monotonic_clock::time_point t1 = std::chrono::monotonic_clock::now();
 #endif
-        double timestamp = frames.get_timestamp();
-        double ttrack= std::chrono::duration_cast<std::chrono::duration<double> >(t1 - 0).count();
+        // double timestamp = frames.get_timestamp();
+        double timestamp= std::chrono::duration_cast<std::chrono::duration<double> >(t1 - 0).count();
 
-        cout << ttrack << endl;
+        cout << timestamp << endl;
         // Pass the image to the SLAM system
-        SLAM.TrackRGBD(imRGB,imD,ttrack);
+        SLAM.TrackRGBD(imRGB,imD,timestamp);
 
 #ifdef COMPILEDWITHC11
         std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
