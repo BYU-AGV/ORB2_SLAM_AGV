@@ -78,7 +78,7 @@ int main(int argc, char **argv)
 #endif
         double timestamp = frames.get_timestamp();
         // Pass the image to the SLAM system
-        SLAM.TrackRGBD(imRGB,imD,timestamp.count());
+        SLAM.TrackRGBD(imRGB,imD,timestamp;
 
 #ifdef COMPILEDWITHC11
         std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
