@@ -68,8 +68,8 @@ int main(int argc, char **argv)
         rs2::frame color_frame = frames.get_color_frame();
         rs2::frame depth_frame = frames.get_depth_frame();
 
-        cv::Mat imRGB(Size(640, 480), cv::CV_8UC3, (void*)color_frame.get_data(), cv::Mat::AUTO_STEP);
-        cv::Mat imD(Size(640, 480), cv::CV_8UC3, (void*)depth_frame.get_data(), cv::Mat::AUTO_STEP);
+        cv::Mat imRGB(Size(640, 480), CV_8UC3, (void*)color_frame.get_data(), cv::Mat::AUTO_STEP);
+        cv::Mat imD(Size(640, 480), CV_8UC3, (void*)depth_frame.get_data(), cv::Mat::AUTO_STEP);
 
 #ifdef COMPILEDWITHC11
         std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
@@ -78,7 +78,7 @@ int main(int argc, char **argv)
 #endif
 
         // Pass the image to the SLAM system
-        SLAM.TrackRGBD(imRGB,imD,tframe);
+        SLAM.TrackRGBD(imRGB,imD,t1);
 
 #ifdef COMPILEDWITHC11
         std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
