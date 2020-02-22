@@ -76,8 +76,7 @@ int main(int argc, char **argv)
 #else
         std::chrono::monotonic_clock::time_point t1 = std::chrono::monotonic_clock::now();
 #endif
-
-        auto timestamp = std::chrono::duration<double>(t1);
+        double timestamp = frames.get_timestamp();
         // Pass the image to the SLAM system
         SLAM.TrackRGBD(imRGB,imD,timestamp.count());
 
