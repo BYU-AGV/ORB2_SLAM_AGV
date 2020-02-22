@@ -80,7 +80,7 @@ int main(int argc, char **argv)
 #endif
         // double timestamp = frames.get_timestamp();
         auto timeStamp = chrono::steady_clock::now();
-        double timestamp = chrono::duration_cast<chrono::milliseconds>(t1).count();
+        double timestamp = chrono::duration_cast<chrono::milliseconds>(timeStamp).count();
 
         cout << timestamp << endl;
         // Pass the image to the SLAM system
