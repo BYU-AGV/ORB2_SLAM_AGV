@@ -82,7 +82,7 @@ int main(int argc, char **argv)
         auto timeStamp = chrono::steady_clock::now();
         chrono::duration<double> timestamp = chrono::duration_cast<chrono::duration<double>(timeStamp);
 
-        cout << timestamp << endl;
+        cout << timestamp.count() << endl;
         // Pass the image to the SLAM system
         SLAM.TrackRGBD(imRGB,imD,timestamp.count());
 
