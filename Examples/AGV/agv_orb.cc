@@ -38,6 +38,13 @@ int main(int argc, char **argv)
     if (argc != 3) {
         cerr << endl << "Usage ./agv_orb path_to_vocabulary path_to_settings" << endl;
     }
+
+    #ifdef COMPILEDWITHC11
+        std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+    #else
+        std::chrono::monotonic_clock::time_point start = std::chrono::monotonic_clock::now();
+    #endif
+
     // Create SLAM system. It initializes all system threads and gets ready to process frames.
     ORB_SLAM2::System SLAM(argv[1],argv[2],ORB_SLAM2::System::RGBD,true);
 
@@ -78,7 +85,7 @@ int main(int argc, char **argv)
 #else
         std::chrono::monotonic_clock::time_point t1 = std::chrono::monotonic_clock::now();
 #endif
-        chrono::duration<double, std::milli> timestamp = chrono::duration_cast<chrono::duration<double, std::milli>(t1).count();
+        chrono::duration<double, std::milli> timestamp = chrono::duration_cast<chrono::duration<double, std::milli>(start - t1);
 
         cout << timestamp.count() << endl;
         // Pass the image to the SLAM system
