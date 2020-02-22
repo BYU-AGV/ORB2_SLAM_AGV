@@ -80,11 +80,11 @@ int main(int argc, char **argv)
 #endif
         // double timestamp = frames.get_timestamp();
         auto timeStamp = chrono::steady_clock::now();
-        chrono::milliseconds timestamp = chrono::duration_cast<chrono::milliseconds>(timeStamp).count();
+        chrono::duration<double> timestamp = chrono::duration_cast<chrono::duration<double>(timeStamp);
 
         cout << timestamp << endl;
         // Pass the image to the SLAM system
-        SLAM.TrackRGBD(imRGB,imD,timestamp);
+        SLAM.TrackRGBD(imRGB,imD,timestamp.count());
 
 #ifdef COMPILEDWITHC11
         std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
