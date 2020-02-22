@@ -64,13 +64,14 @@ int main(int argc, char **argv)
 
     cout << endl << "Flushing stream." << endl;
     rs2::frameset frames;
-    for (int i = 0; i < 10; i++) {
-        frames = pipe.wait_for_frames();
-    }
+    // for (int i = 0; i < 10; i++) {
+    //     frames = pipe.wait_for_frames();
+    // }
 
     // Main loop
     cv::Mat imRGB, imD;
-    while(1)
+    
+    for (int i = 0; i < 50; i++)
     {
         frames = pipe.wait_for_frames();
         
@@ -85,7 +86,7 @@ int main(int argc, char **argv)
 #else
         std::chrono::monotonic_clock::time_point t1 = std::chrono::monotonic_clock::now();
 #endif
-        double timestamp= std::chrono::duration_cast<std::chrono::duration<double> >(t1 - start).count();
+        double timestamp = std::chrono::duration_cast<std::chrono::duration<double> >(t1 - start).count();
 
         cout << timestamp << endl;
         // Pass the image to the SLAM system
@@ -102,6 +103,7 @@ int main(int argc, char **argv)
 
     // Stop all threads
     SLAM.Shutdown();
+    pipe.stop();
 
     // Save camera trajectory
     SLAM.SaveTrajectoryTUM("CameraTrajectory.txt");
