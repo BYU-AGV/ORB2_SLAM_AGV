@@ -39,7 +39,7 @@ int main(int argc, char **argv)
         cerr << endl << "Usage ./agv_orb path_to_vocabulary path_to_settings" << endl;
     }
     // Create SLAM system. It initializes all system threads and gets ready to process frames.
-    ORB_SLAM2::System SLAM(argv[1],argv[2],ORB_SLAM2::System::RGBD,false);
+    ORB_SLAM2::System SLAM(argv[1],argv[2],ORB_SLAM2::System::RGBD,true);
 
     // Vector for tracking time statistics
     vector<float> vTimesTrack;
