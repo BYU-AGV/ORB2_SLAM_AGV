@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 
     cout << endl << "Opening camera." << endl;
 
-    pipe.start(cfg);
+    pipe.start();
 
     cout << endl << "Flushing stream." << endl;
     rs2::frameset frames;
