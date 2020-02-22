@@ -65,6 +65,8 @@ int main(int argc, char **argv)
     cv::Mat imRGB, imD;
     while(1)
     {
+        frames = pipe.wait_for_frames();
+        
         rs2::frame color_frame = frames.get_color_frame();
         rs2::frame depth_frame = frames.get_depth_frame();
 
