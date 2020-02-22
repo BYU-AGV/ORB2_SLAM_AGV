@@ -89,6 +89,8 @@ add_executable(rgbd_tum
 Examples/RGB-D/rgbd_tum.cc)
 target_link_libraries(rgbd_tum ${PROJECT_NAME})
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/AGV)
+
 add_executable(agv_orb
 Examples/AGV/agv_orb.cc)
 target_link_libraries(agv_orb ${PROJECT_NAME})
