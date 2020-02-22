@@ -39,6 +39,9 @@ endif()
 find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
 
+# Find librealsense2 installed package
+find_package(realsense2 REQUIRED)
+
 include_directories(
 ${PROJECT_SOURCE_DIR}
 ${PROJECT_SOURCE_DIR}/include
@@ -85,6 +88,13 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/RGB-D)
 add_executable(rgbd_tum
 Examples/RGB-D/rgbd_tum.cc)
 target_link_libraries(rgbd_tum ${PROJECT_NAME})
+
+# add_executable(agv_orb
+# Examples/AGV/agv_orb.cc)
+# target_link_libraries(rgbd_tum ${PROJECT_NAME})
+# # Link librealsense2 to the target
+# target_link_libraries(${PROJECT_NAME} ${realsense2_LIBRARY})
+
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Stereo)
 
